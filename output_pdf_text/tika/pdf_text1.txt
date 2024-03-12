@@ -1,0 +1,106 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COP290: Design Practices
+
+Assignment 2 - Subtask 1
+
+3rd March 2024
+
+Introduction
+
+In this assignment, we will gradually build towards a larger project. Subtask 1
+needs to be done individually, while the further subtask(s) will need to be done
+in groups of 2. We will release details about them later.
+
+For Assignment 2, we will not have any restrictions on programming lan-
+guage or framework.
+
+Subtask 1 [Deadline : 14th March 2024]
+
+Subtask 1 involves developing a program to parse text from different multimedia
+sources. The goal is to extract text data from videos, audio files, and PDF
+documents.
+
+This can be divided into three main parts:
+
+1. Parsing Text from Video: This part requires developing functionality
+to extract transcript of video files.
+
+2. Parsing Text from Audio: In this part, the objective is to transcribe
+text from audio files.
+
+3. Parsing Text from PDF: The final part involves extracting text content
+from PDF documents. This requires parsing the PDF files and extracting
+textual data, which may include plain text or structured text elements
+such as paragraphs, headings, or lists.
+
+NOTE: Evaluation will be done on the basis of both the quality of generated
+text and efficiency of code.
+
+1
+
+
+
+Submission Details
+
+Please adhere to the submission guidelines and ensure that your submission
+meets all the requirements outlined below.
+
+1. Submissions will be through Moodle. We will share some example videos,
+audios adn PDFs (will be shared over Piazza).
+
+2. Submit a report containing the following details:
+
+� Implementation insights details: Specify the programming language
+and libraries/frameworks used for the development of your program.
+Include any methods or techniques implemented to improve the per-
+formance.
+
+� Issues faced: Discuss any challenges or difficulties encountered during
+the implementation process, inconsistencies or format compatibility
+issues, approach changes if any for different PDFs.
+
+� Results on examples shared on Piazza and test examples used by you.
+Submit test videos, audios and PDFs used by you in a drive folder.
+Add a shareable link in the report itself.
+
+3. Evaluation will be done through demos along with further subtasks.
+
+2
+
+

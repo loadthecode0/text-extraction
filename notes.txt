@@ -8,3 +8,8 @@
 
 - Keep in mind the file size (media time restriction of sending the inputs to APIs). -- 1 min for most
 - check out api/library to check correctness of parsed text
+
+PDF : LOOK AT THESE WHILE MAKING REPORT
+- https://pradeepundefned.medium.com/a-comparison-of-python-libraries-for-pdf-data-extraction-for-text-images-and-tables-c75e5dbcfef8
+- https://github.com/py-pdf/benchmarks/tree/main/read
+- https://stackoverflow.com/questions/34837707/how-to-extract-text-from-a-pdf-file
