@@ -40,7 +40,7 @@ def pdfproc_tika (index):
     
 def pdfproc_tabula(index):
     tabula.convert_into("test_pdfs/test" + str(index) +".pdf", 
-                        "output_pdf_text/" + dir + "/pdf_text" + str(index) + ".csv", 
+                        "output_pdf_text/tabula/pdf_text" + str(index) + ".csv", 
                         output_format="csv", 
                         pages='all'
                         )
