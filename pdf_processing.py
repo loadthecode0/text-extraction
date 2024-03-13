@@ -56,3 +56,6 @@ def main():
         pdfproc_tika(i)
         
     pdfproc_tabula(5)
+    
+if __name__ == "__main__":
+    main()

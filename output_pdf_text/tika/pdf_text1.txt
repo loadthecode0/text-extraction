@@ -86,16 +86,16 @@ audios adn PDFs (will be shared over Piazza).
 
 2. Submit a report containing the following details:
 
-ï¿½ Implementation insights details: Specify the programming language
+• Implementation insights details: Specify the programming language
 and libraries/frameworks used for the development of your program.
 Include any methods or techniques implemented to improve the per-
 formance.
 
-ï¿½ Issues faced: Discuss any challenges or difficulties encountered during
+• Issues faced: Discuss any challenges or difficulties encountered during
 the implementation process, inconsistencies or format compatibility
 issues, approach changes if any for different PDFs.
 
-ï¿½ Results on examples shared on Piazza and test examples used by you.
+• Results on examples shared on Piazza and test examples used by you.
 Submit test videos, audios and PDFs used by you in a drive folder.
 Add a shareable link in the report itself.
 
