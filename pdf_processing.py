@@ -3,6 +3,7 @@ import pypdfium2 as pdfium
 from pdfminer.high_level import extract_text
 import fitz
 from tika import parser 
+import tabula
 
 def write_output(text, dir, index):
     f = open("output_pdf_text/" + dir + "/pdf_text" + str(index) + ".txt", "w")
@@ -37,11 +38,21 @@ def pdfproc_tika (index):
     text = pdf['content']
     write_output(text, "tika", index)
     
-path = "./test_pdfs"
-dir_list = os.listdir(path)
+def pdfproc_tabula(index):
+    tabula.convert_into("test_pdfs/test" + str(index) +".pdf", 
+                        "output_pdf_text/" + dir + "/pdf_text" + str(index) + ".csv", 
+                        output_format="csv", 
+                        pages='all'
+                        )
+    
+def main():
+    path = "./test_pdfs"
+    dir_list = os.listdir(path)
 
-for i in range(1, len(dir_list) + 1):
-    pdfproc_pypdfium2(i)
-    pdfproc_pdfminer(i)
-    pdfproc_pymupdf(i)
-    pdfproc_tika(i)
+    for i in range(1, len(dir_list) + 1): #1 to 4
+        pdfproc_pypdfium2(i)
+        pdfproc_pdfminer(i)
+        pdfproc_pymupdf(i)
+        pdfproc_tika(i)
+        
+    pdfproc_tabula(5)

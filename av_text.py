@@ -1,24 +1,51 @@
 import os
 import speech_recognition as sr
+import wave, math, contextlib
+import whisper
 
-# Initialize recognizer class (for recognizing the speech)
-r = sr.Recognizer()
+def write_output(text, dir, index):
+    f = open("output_video_text/" + dir + "/video_transcript" + str(index) + ".txt", "w")
+    f.write(text)
+    f.close()
 
-path = "./test_videos/gen_audios"
-dir_list = os.listdir(path)
+def audproc_speechrecognition(index):
+    r = sr.Recognizer()
+    text = ""
+    
+    with contextlib.closing(wave.open("test_videos/gen_audios/audio" + str(index) + ".wav",'r')) as f:
+        frames = f.getnframes()
+        rate = f.getframerate()
+        duration = frames / float(rate)
+    total_duration = math.ceil(duration / 30)
+    
+    for i in range(0, total_duration):
+        with sr.AudioFile("test_videos/gen_audios/audio" + str(index) + ".wav") as source:
+            r.adjust_for_ambient_noise(source)
+            r.energy_threshold = 100
+            audio_text = r.record(source, offset=i*30, duration=30)
+            text += r.recognize_google(audio_text, language='en-US') + " "
+            print(text)
+    write_output(text, "speechrecognition", index)
+    
+def audproc_whisper(index):
+    DEVICE = "cpu"
+    model = whisper.load_model("medium", device=DEVICE)
+    audio = whisper.load_audio("test_videos/gen_audios/audio" + str(index) + ".wav")
+    audio = whisper.pad_or_trim(audio)
+    result = model.transcribe("test_videos/gen_audios/audio" + str(index) + ".wav", verbose=True)
+    print(result["text"])
+    if (index!=6) : 
+        write_output(result["text"], "whisper", index)
 
-for i in range(1, len(dir_list)):
-    print(i)
-    # Open the audio file
-    with sr.AudioFile("test_videos/gen_audios/audio" + str(4) + ".wav") as source:
-        audio_text = r.record(source)
-        # Recognize the speech in the audio
-        text = r.recognize_google(audio_text, language='en-US')
-        # Print the transcript
-        file_name = "output_video_text/video_transcript" + str(4) + ".txt"
+def main():    
+    path = "./test_videos/gen_audios"
+    dir_list = os.listdir(path)
+    for i in range (1, len(dir_list)+1):
+        audproc_whisper(i)
+    audproc_whisper(6)
 
-    with open(file_name, "w") as file:
-        # Write to the file
-        file.write(text)
-    # Open the file for editing by the user
-    # os.system(f"start {file_name}")
+if __name__ == "__main__":
+    main()
+
+
+        
